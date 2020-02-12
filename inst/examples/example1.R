@@ -1,3 +1,5 @@
+# remotes::install_github("timelyportfolio/rparticle")
+
 library(rparticle)
 library(ggplot2)
 library(base64enc)
