@@ -1,9 +1,10 @@
 library(rparticle)
 library(ggplot2)
 library(base64enc)
+library(htmltools)
 
 # replicate example
-rparticle(
+(ex1 <- rparticle(
   list(
     src = "https://malerba118.github.io/react-particle-image-demo/logo512.png",
     #src = src,
@@ -28,7 +29,7 @@ rparticle(
     ')
   )
 )
-
+)
 
 tmp <- tempfile(fileext = ".png")
 #on.exit({unlink(tmp)})
@@ -47,7 +48,7 @@ src <- paste0(
 )
 
 #do it with a ggplot
-rparticle(
+(ex2 <- rparticle(
   list(
     src = src,
     scale = 0.75,
@@ -76,3 +77,10 @@ rparticle(
     ')
   )
 )
+)
+
+browsable(tagList(
+  tags$style(".html-widget{display:inline;}"),
+  ex1,
+  ex2
+))
