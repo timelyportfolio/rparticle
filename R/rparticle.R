@@ -5,10 +5,15 @@
 #' @import htmlwidgets
 #'
 #' @export
-rparticle <- function(message, width = NULL, height = NULL, elementId = NULL) {
+rparticle <- function(
+  config = list(),
+  width = NULL, height = NULL, elementId = NULL
+) {
 
   # describe a React component to send to the browser for rendering.
-  component <- reactR::reactMarkup(htmltools::tag("div", list(message)))
+  component <- reactR::reactMarkup(
+    reactR::component("ParticleImage", config)
+  )
 
   # create widget
   htmlwidgets::createWidget(

@@ -1,3 +1,13 @@
 import { reactWidget } from 'reactR';
+import ParticleImage, { ParticleOptions, forces, ParticleForce } from "react-particle-image";
 
-reactWidget('rparticle', 'output', {}, {});
+window.forces = forces
+
+reactWidget(
+  'rparticle',
+  'output',
+  {
+    ParticleImage: ParticleImage
+  },
+  {}
+);
